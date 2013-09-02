@@ -1,22 +1,22 @@
-# -*- encoding: utf-8 -*-
-require File.expand_path('../lib/rubysl-expect/version', __FILE__)
+# coding: utf-8
+require './lib/./lib/rubysl/expect/version'
 
-Gem::Specification.new do |gem|
-  gem.authors       = ["Brian Shirai"]
-  gem.email         = ["brixen@gmail.com"]
-  gem.description   = %q{Ruby Standard Library - expect}
-  gem.summary       = %q{Ruby Standard Library - expect}
-  gem.homepage      = ""
+Gem::Specification.new do |spec|
+  spec.name          = "rubysl-expect"
+  spec.version       = RubySL::Expect::VERSION
+  spec.authors       = ["Brian Shirai"]
+  spec.email         = ["brixen@gmail.com"]
+  spec.description   = %q{Ruby standard library expect.}
+  spec.summary       = %q{Ruby standard library expect.}
+  spec.homepage      = "https://github.com/rubysl/rubysl-expect"
+  spec.license       = "BSD"
 
-  gem.files         = `git ls-files`.split($\)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "rubysl-expect"
-  gem.require_paths = ["lib"]
-  gem.version       = RubySL::Expect::VERSION
+  spec.files         = `git ls-files`.split($/)
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.require_paths = ["lib"]
 
-  gem.add_runtime_dependency "redcard", "~> 1.0"
-
-  gem.add_development_dependency "rake",  "~> 10.0"
-  gem.add_development_dependency "mspec", "~> 1.5"
+  spec.add_development_dependency "bundler", "~> 1.3"
+  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "mspec", "~> 1.5"
 end
