@@ -1,5 +1,5 @@
 # coding: utf-8
-require './lib/./lib/rubysl/expect/version'
+require './lib/rubysl/expect/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rubysl-expect"
