@@ -3,13 +3,13 @@ require './lib/rubysl/expect/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rubysl-expect"
-  spec.version       = Rubysl::Expect::VERSION
+  spec.version       = RubySL::Expect::VERSION
   spec.authors       = ["Brian Shirai"]
   spec.email         = ["brixen@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
-  spec.license       = "MIT"
+  spec.description   = %q{Ruby standard library expect.}
+  spec.summary       = %q{Ruby standard library expect.}
+  spec.homepage      = "https://github.com/rubysl/rubysl-expect"
+  spec.license       = "BSD"
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
@@ -17,5 +17,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "mspec", "~> 1.5"
+  spec.add_development_dependency "rubysl-prettyprint", "~> 1.0"
 end
