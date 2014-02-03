@@ -22,21 +22,22 @@ class IO
     @unusedBuf ||= ''
     while true
       if not @unusedBuf.empty?
-        c = @unusedBuf.slice!(0).chr
+        partialBuf << @unusedBuf
+        @unusedBuf = ''
       elsif !IO.select([self],nil,nil,timeout) or eof? then
         result = nil
         @unusedBuf = buf
         break
       else
-        c = getc.chr
+        partialBuf = readpartial 4096
       end
-      buf << c
+      buf << partialBuf
       if $expect_verbose
-        STDOUT.print c
+        STDOUT.print partialBuf
         STDOUT.flush
       end
       if mat=e_pat.match(buf) then
-        result = [buf,*mat.to_a[1..-1]]
+        result = mat.to_a
         break
       end
     end
@@ -48,4 +49,3 @@ class IO
     nil
   end
 end
-
